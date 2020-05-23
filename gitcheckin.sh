@@ -1,13 +1,16 @@
 #!/bin/bash
+green="\033[32m"
 PS3="What repo you want to make changes in: "
+path="${HOME}"
 
-options=("python_examples" "interview_questions" "quit")
+options=("python_examples" "interview_problems" "quit")
 
 select opt in "${options[@]}" 
 do 
 	case $opt in 
 		python_examples) 
-			cd /Users/saraddhungel/Documents/Coding_exercises/python_examples
+			cd "$path/Documents/Coding_exercises/python_examples"
+			PS3="What do you want to do in $green${options[@]} repo: "
 			select option in "commit_n_push" "status" "branch"
 			do
 				case $option in 
@@ -29,8 +32,9 @@ do
 				break
 			done
 			;;
-		interview_questions)
-			cd /Users/saraddhungel/Documents/Coding_exercises/python_examples
+		interview_problems)
+			cd "$path/Documents/Coding_exercises/interview_problems"
+			PS3="What do you want to do in ${options[@]} repo: "
 			select option in "commit_n_push" "status" "branch"
 			do
 				case $option in 
